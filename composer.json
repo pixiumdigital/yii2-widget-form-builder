@@ -1,0 +1,25 @@
+{
+    "name": "pixium/yii2-widget-form-builder",
+    "description": "Form Builder to json",
+    "keywords": ["yii2", "json", "widget", "formbuiler", "form"],
+    "homepage": "https://github.com/pixiumdigital/yii2-widget-form-builder",
+    "type": "yii2-extension",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Remi Tache",
+            "email": "remitache@gmail.com",
+            "homepage": "http://pixiumdigital.com/"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "pixium\\widgets\\": "src/"
+        }
+    },
+    "require": {
+        "php": ">=5.6.0",
+        "yiisoft/yii2": "~2.0.14"
+    },
+    "minimum-stability": "dev"
+}
