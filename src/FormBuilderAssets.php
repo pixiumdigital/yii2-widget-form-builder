@@ -1,5 +1,5 @@
 <?php
-namespace pixium\widgets;
+namespace pixium\form_builder;
 
 use yii\web\AssetBundle;
 
@@ -10,7 +10,7 @@ class FormBuilderAsset extends AssetBundle
     // public $baseUrl = '@web';
     public $css = ['assets/css/main.css'];
     public $js = [
-        'assets/bundle.js'
+        'assets/js/bundle.js'
     ];
     // public $depends = [
     //     'yii\web\JqueryAsset'
@@ -20,6 +20,8 @@ class FormBuilderAsset extends AssetBundle
     {
         // Tell AssetBundle where the assets files are
         $this->sourcePath = __DIR__.'/assets';
+        $this->setupAssets('css', ['css/main']);
+        $this->setupAssets('js', ['js/bundle']);
         parent::init();
     }
 }

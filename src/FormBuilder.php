@@ -1,8 +1,9 @@
 <?php
-namespace pixium\widgets;
+namespace pixium\form_builder;
 
+use yii\base\Widget;
 use yii\widgets\InputWidget;
-
+use Yii;
 
 /**
  * Widget renders a Form from and to JSON file
@@ -43,7 +44,21 @@ class FormBuilder extends InputWidget
         ]
     }
     */
-    public $data;
+    public $data = '{
+                        "sections": [
+                            {
+                                "name": "Section Name",
+                                "blocks": [
+                                    {
+                                        "title": "Block Title",
+                                        "name": "question name",
+                                        "label": "Label question",
+                                        "type": 3
+                                    }
+                                ]
+                            }
+                        ]
+                    }';
 
     /*
     To switch between the modes ['run', 'build'] of the FormBuilder
@@ -80,18 +95,19 @@ class FormBuilder extends InputWidget
         }
 
         $view = $this->getView();
+        FormBuilderAssets::registerBundle($view);
         // FormBuilderAsset::register($view);    
 
         $formName = 'FormBuilder_' . hash('crc32', $hiddenInputId);
-        $this->options['data-form-build-name'] = $formName;
+        // $this->options['data-form-build-name'] = $formName;
         $jsUpdateHiddenField = "jQuery('#$hiddenInputId').val($formName.getJson());";
 
         $jsCode = 
         // Init From builder Object
         "$formName = new Library.PixiumForm({
-            'div': ".$this->div.",
-            'data': ".$this->data.",
-            'mode': ".$this->mode."
+            'div': ".$div.",
+            'data': ".$data.",
+            'mode': ".$mode."
         });\n".
         // Run Instance
         "$formName.run();\n".

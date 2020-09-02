@@ -18,6 +18,12 @@ add
     ]
 ```
 
+and add to require list
+
+```
+        "pixium/yii2-widget-form-builder": "dev-master",
+```
+
 # Usage
 
 ```php
@@ -26,7 +32,7 @@ use pixium\widgets\FromBuilder;
 FormBuilder::widget([
     'div' => 'container',
     'data' => data, //JSON
-    'mode' => 'run' //or 'build',
+    'mode' => 'run', //or 'build',
     'hiddenInputId' => 'hidden-input-json'
 ]); 
 ```
@@ -41,7 +47,7 @@ $form->field($model, 'data')->widget(
         [
             'div' => 'container',
             'data' => data, //JSON
-            'mode' => 'run' //or 'build',
+            'mode' => 'run', //or 'build',
             'hiddenInputId' => 'hidden-input-json'
         ]
     );
