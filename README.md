@@ -32,8 +32,7 @@ use pixium\widgets\FromBuilder;
 FormBuilder::widget([
     'div' => 'container',
     'data' => data, //JSON
-    'mode' => 'run', //or 'build',
-    'hiddenInputId' => 'hidden-input-json'
+    'mode' => 'run' //or 'build'
 ]); 
 ```
 
@@ -47,8 +46,7 @@ $form->field($model, 'data')->widget(
         [
             'div' => 'container',
             'data' => data, //JSON
-            'mode' => 'run', //or 'build',
-            'hiddenInputId' => 'hidden-input-json'
+            'mode' => 'run' //or 'build'
         ]
     );
 
