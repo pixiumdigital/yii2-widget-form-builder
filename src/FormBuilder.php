@@ -92,9 +92,11 @@ class FormBuilder extends InputWidget
     public function run()
     {
         // parent::run();
+        echo Html::button('SAVE QUESTIONS', ['id' => 'form-builder-save-btn']);
+
         $this->registerClientScript();
         if ($this->hasModel()) {
-            $this->options['value'] = $this->value; 
+            $this->options['value'] = $this->data; 
             // echo Html::activeHiddenInput($this->model, $this->attribute, $this->options);
             echo Html::activeTextInput($this->model, $this->attribute, $this->options);
         } else {
@@ -114,21 +116,36 @@ class FormBuilder extends InputWidget
         // FormBuilderAsset::register($view);    
 
         $hiddenInputId = $this->options['id'];
-        $formName = Inflector::variablize($hiddenInputId) . 'FormBuilder_' . hash('crc32', $hiddenInputId);
-        // $this->options['data-form-build-name'] = $formName;
-        $jsUpdateHiddenField = "jQuery('#$hiddenInputId').val($formName.compileJson());";
+        $formBuilderName = Inflector::variablize($hiddenInputId) . 'FormBuilder_' . hash('crc32', $hiddenInputId);
+        // $this->options['data-form-build-name'] = $formBuilderName;
+        // $jsUpdateHiddenField = "document.getElementById('$hiddenInputId').value = $formBuilderName.compileJson() ;";
+        $jsUpdateHiddenField = "jQuery('#$hiddenInputId').val($formBuilderName.compileJson());";
+
+        // if (isset($this->clientOptions['onChange'])) {
+        //     $userFunction = " var userFunction = {$this->clientOptions['onChange']}; userFunction.call(this);";
+        // } else {
+        //     $userFunction = '';
+        // }
+        // $this->clientOptions['onChange'] = new JsExpression("function() {{$jsUpdateHiddenField}$userFunction}");
 
         $jsCode = 
         // Init From builder Object
-        "$formName = new Library.PixiumForm({
+        "$formBuilderName = new Library.PixiumForm({
             'div': '".$this->containerOptions['id']."',
             'data': ".$this->data.",
             'mode': '".$this->mode."'
-        });\n".
+        });\n"
         // Run Instance
-        "$formName.run();\n".
-        // Set form submit to save trigger yii validation
-        "jQuery('#$hiddenInputId').parents('form').submit(function() {{$jsUpdateHiddenField}});";
+        ."$formBuilderName.run();\n"
+        // Set form submit to trigger jsonComplie
+        // ."jQuery('#$hiddenInputId').parents('form').submit(function() { console.log($formBuilderName.compileJson()); {$jsUpdateHiddenField}});"
+        // ."document.getElementById('$hiddenInputId').parentNode.closest('form').addEventListener('submit', (event) => {{$jsUpdateHiddenField}});"
+        ."document.getElementById('form-builder-save-btn').onclick = function() {
+            var textnode = document.createTextNode(".$formBuilderName.".compileJson()); 
+            console.log(textnode);
+            document.getElementById('".$this->containerOptions['id']."').appendChild(textnode);      
+          }"
+        ;
 
         // Add js to view 
         $view->registerJs($jsCode);
