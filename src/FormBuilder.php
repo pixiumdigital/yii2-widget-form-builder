@@ -100,8 +100,8 @@ class FormBuilder extends InputWidget
             'data': ".$this->data.",
             'mode': '".$this->mode."'
         });\n"
-        // Run Instance
-        ."$formBuilderName.run();\n"
+        // Display run or build form depending on mode chosen 
+        ."$formBuilderName.$this->mode();\n"
         // Set form submit to trigger jsonComplie
         ."document.getElementById('$hiddenInputId').parentNode.closest('form').addEventListener('submit', function(){{$jsUpdateHiddenField}});"
         // add onclick event to save btn
