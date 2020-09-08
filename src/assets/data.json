@@ -1,10 +1,11 @@
 {
     "sections": [
         {
-            "name": "block 2",
+            "title": "Section 1",
+            "name": "S1",
             "blocks": [
                 {
-                    "title": "BLABLA: <br> <br> How BLALBAty to delegate?",
+                    "text": "BLABLA: <br> <br> How BLALBAty to delegate?",
                     "name": "q3",
                     "type": 3,
                     "min": "1",
@@ -14,7 +15,7 @@
                     "label": "Delegation"
                 },
                 {
-                    "title": "Test Ludo?",
+                    "text": "Test Ludo?",
                     "name": "q3bis",
                     "type": 3,
                     "min": "1",
@@ -31,15 +32,13 @@
                 {
                     "type": 2,
                     "name": "q2",
-                    "title": "How do you feel about meeting new people?",
+                    "text": "How do you feel about meeting new people?",
                     "choices": [
                       {
-                        "text": "I love meeting new people!",
                         "value": 1,
                         "label": "Extraverted"
                       },
                       {
-                        "text": "Sometimes I like to meet new people, if I'm in the right mood.",
                         "value": 2,
                         "label": "Introverted"
                       }
@@ -48,17 +47,15 @@
                 {
                     "type": 4,
                     "name": "q22",
-                    "title": "How do you feel about meeting new people?",
+                    "text": "How do you feel about meeting new people?",
                     "choices": [
                       {
-                        "text": "I love meeting new people!",
                         "value": 1,
-                        "label": "Extraverted"
+                        "label": "I love meeting new people!"
                       },
                       {
-                        "text": "Sometimes I like to meet new people, if I'm in the right mood.",
                         "value": 2,
-                        "label": "Introverted"
+                        "label": "Sometimes I like to meet new people, if I'm in the right mood."
                       }
                     ]
                 }
@@ -68,14 +65,14 @@
             "name": "block 1",
             "blocks": [
                 {
-                    "title": "DDDDELEGATION: <br> <br> How skilled do you feel today about your ability to delegate?",
+                    "text": "DDDDELEGATION: <br> <br> How skilled do you feel today about your ability to delegate?",
                     "name": "q1",
                     "type": 1,
                     "group": 1,
                     "label": "Delegation"
                 },
                 {
-                    "title": "TEST: <br> <br> How sity to delegate?",
+                    "text": "TEST: <br> <br> How sity to delegate?",
                     "name": "q2",
                     "type": 1,
                     "group": 1,
