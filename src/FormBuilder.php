@@ -47,6 +47,11 @@ class FormBuilder extends InputWidget
      */
     public $containerOptions = [];
 
+    /*
+    To switch between to debug mode which include display Go to run / build btns
+    */
+    public $debug = false;
+
    /**
      * {@inheritdoc}
      */
@@ -98,7 +103,8 @@ class FormBuilder extends InputWidget
         "$formBuilderName = new Library.PixiumForm({
             'div': '".$this->containerOptions['id']."',
             'data': ".$this->data.",
-            'mode': '".$this->mode."'
+            'mode': '".$this->mode."',
+            'debug': '".$this->debug."',
         });\n"
         // Display run or build form depending on mode chosen 
         ."$formBuilderName.$this->mode();\n"
