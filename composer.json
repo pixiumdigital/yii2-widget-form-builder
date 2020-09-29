@@ -1,7 +1,7 @@
 {
     "name": "pixium/yii2-widget-form-builder",
     "description": "Form Builder to json",
-    "keywords": ["yii2", "json", "widget", "formbuiler", "form"],
+    "keywords": ["yii2", "json", "widget", "formbuilder", "form"],
     "homepage": "https://github.com/pixiumdigital/yii2-widget-form-builder",
     "type": "yii2-extension",
     "license": "MIT",
@@ -9,7 +9,7 @@
         {
             "name": "Remi Tache",
             "email": "remitache@gmail.com",
-            "homepage": "http://pixiumdigital.com/"
+            "homepage": "https://pixiumdigital.com/"
         }
     ],
     "autoload": {

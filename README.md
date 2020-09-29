@@ -1,7 +1,8 @@
-# Form Builder
+## Form Builder
+
 Wrapper around the Pixium Form Builder (Google Form like)
 
-# Installation
+## Installation
 
 The preferred way to install this extension is through [composer](https://getcomposer.org/download/)
 
@@ -20,7 +21,7 @@ or add
 to the require section of your composer.json file.
 
 
-# Usage
+## Usage
 
 ```php
 use pixium\widgets\FromBuilder;
