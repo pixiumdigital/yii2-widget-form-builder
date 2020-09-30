@@ -30,9 +30,11 @@ and add to require list
 use pixium\widgets\FromBuilder;
 
 FormBuilder::widget([
-    'div' => 'container',
+    'div' => 'container', //div id
     'data' => data, //JSON
-    'mode' => 'run' //or 'build'
+    'mode' => 'run', //or 'build'
+    'singleSection' => false,
+    'debug' => false,
 ]); 
 ```
 
@@ -44,9 +46,11 @@ use pixium\widgets\FromBuilder;
 $form->field($model, 'data')->widget(
         FormBuilder::class,
         [
-            'div' => 'container',
+            'div' => 'container', // div id
             'data' => data, //JSON
             'mode' => 'run' //or 'build'
+            'singleSection' => false,
+            'debug' => false,
         ]
     );
 

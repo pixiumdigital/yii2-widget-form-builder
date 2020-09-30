@@ -41,6 +41,11 @@ class FormBuilder extends InputWidget
     */
     public $mode = 'run';
 
+    /*
+    To limit form creation to a single section (page) of block
+    */
+    public $singleSection = false;
+
     /**
      * @var array HTML attributes to be applied to the Form builder container tag
      * @see \yii\helpers\Html::renderTagAttributes() for details on how attributes are being rendered
@@ -104,6 +109,7 @@ class FormBuilder extends InputWidget
             'div': '".$this->containerOptions['id']."',
             'data': ".$this->data.",
             'mode': '".$this->mode."',
+            'singleSection': '".$this->singleSection."',
             'debug': '".$this->debug."',
         });\n"
         // Display run or build form depending on mode chosen 
