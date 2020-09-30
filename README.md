@@ -1,38 +1,35 @@
-# yii2-widget-form-builder
-Wrapper around the Pixium Form Builder
+## Form Builder
 
-# Installation
+Wrapper around the Pixium Form Builder (Google Form like)
 
-The preferred way to install this extension is through [Composer](https://getcomposer.org).
+## Installation
+
+The preferred way to install this extension is through [composer](https://getcomposer.org/download/)
 
 add
 
 ```
-    "repositories": [
-        ...
-        {
-            "type": "vcs",
-            "url": "https://github.com/pixiumdigital/yii2-widget-form-builder"
-        }
-        ...
-    ]
+$ composer require pixium/yii2-widget-form-builder:dev-master
 ```
 
-and add to require list
+or add
 
 ```
-        "pixium/yii2-widget-form-builder": "dev-master",
+"pixium/yii2-widget-form-builder": "dev-master",
 ```
 
-# Usage
+to the require section of your composer.json file.
+
+
+## Usage
 
 ```php
 use pixium\widgets\FromBuilder;
 
 FormBuilder::widget([
-    'div' => 'container', //div id
-    'data' => data, //JSON
-    'mode' => 'run', //or 'build'
+    'div' => 'container',
+    'data' => data, //JSON content, can be empty
+    'mode' => 'run' //or 'build'
     'singleSection' => false,
     'debug' => false,
 ]); 
@@ -46,8 +43,8 @@ use pixium\widgets\FromBuilder;
 $form->field($model, 'data')->widget(
         FormBuilder::class,
         [
-            'div' => 'container', // div id
-            'data' => data, //JSON
+            'div' => 'container',
+            'data' => data, //JSON content, can be empty
             'mode' => 'run' //or 'build'
             'singleSection' => false,
             'debug' => false,
