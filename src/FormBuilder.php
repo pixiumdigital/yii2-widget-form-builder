@@ -120,23 +120,23 @@ class FormBuilder extends InputWidget
         $jsUpdateHiddenField = "document.getElementById('$hiddenInputId').value = $formBuilderName.compileJson() ;";
 
         $jsCode = 
-        // Init From builder Object
-        "$formBuilderName = new Library.PixiumForm({
-            'div': '".$this->containerOptions['id']."',
-            'data': ".$this->data.",
-            'mode': '".$this->mode."',
-            'singleSection': '".$this->singleSection."',
-            'debug': '".$this->debug."',
-            'hideEditQuestion': '".$this->hideEditQuestion."',
-            'hideQuestionType': '".$this->hideQuestionType."',
-            'hideQuestionTypeSelection': '".$this->hideQuestionTypeSelection."'
-        });\n"
-        // Display run or build form depending on mode chosen 
-        ."$formBuilderName.$this->mode();\n"
-        // Set form submit to trigger jsonComplie
-        ."document.getElementById('$hiddenInputId').parentNode.closest('form').addEventListener('submit', function(){{$jsUpdateHiddenField}});"
-        // add onclick event to save btn
-        // ."document.getElementById('form-builder-save-btn').onclick = function() {$jsUpdateHiddenField}"
+            // Init From builder Object
+            "$formBuilderName = new Library.PixiumForm({
+                'div': '".$this->containerOptions['id']."',
+                'data': ".$this->data.",
+                'mode': '".$this->mode."',
+                'singleSection': '".$this->singleSection."',
+                'debug': '".$this->debug."',
+                'hideEditQuestion': '".$this->hideEditQuestion."',
+                'hideQuestionType': '".$this->hideQuestionType."',
+                'hideQuestionTypeSelection': '".json_encode($this->hideQuestionTypeSelection)."'
+            });\n"
+            // Display run or build form depending on mode chosen 
+            ."$formBuilderName.$this->mode();\n"
+            // Set form submit to trigger jsonComplie
+            ."document.getElementById('$hiddenInputId').parentNode.closest('form').addEventListener('submit', function(){{$jsUpdateHiddenField}});"
+            // add onclick event to save btn
+            // ."document.getElementById('form-builder-save-btn').onclick = function() {$jsUpdateHiddenField}"
         ;
 
         // Add js to view 
