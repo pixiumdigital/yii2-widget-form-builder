@@ -21,6 +21,22 @@ class FormBuilder extends InputWidget
 {
 
     /*
+    Hide the Edit question option
+    */
+    public $hideEditQuestion = false;
+
+    /*
+    Hide some question type dropdown 
+     */
+    public $hideQuestionType = null;
+    
+    /*
+    Hide the question Type selection dropdown
+     */
+    public $hideQuestionTypeSelection = false;
+
+
+    /*
     Div to display the form
     */
     public $div = 'container';
@@ -111,6 +127,9 @@ class FormBuilder extends InputWidget
             'mode': '".$this->mode."',
             'singleSection': '".$this->singleSection."',
             'debug': '".$this->debug."',
+            'hideEditQuestion': '".$this->hideEditQuestion."',
+            'hideQuestionType': '".$this->hideQuestionType."',
+            'hideQuestionTypeSelection': '".$this->hideQuestionTypeSelection."'
         });\n"
         // Display run or build form depending on mode chosen 
         ."$formBuilderName.$this->mode();\n"
