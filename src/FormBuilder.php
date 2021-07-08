@@ -123,11 +123,12 @@ class FormBuilder extends InputWidget
         if($this->hideQuestionType){
             $subElem = "'hideQuestionType':'".json_encode($this->hideQuestionType)."',";
         }
+        $containerId = $this->containerOptions["id"];
         
         $jsCode = 
         // Init From builder Object
         "$formBuilderName = new Library.PixiumForm({
-            'div': '".$this->containerOptions['id']."',
+            'div': '".$containerId."',
             'data': ".$this->data.",
             'mode': '".$this->mode."',
             'singleSection': '".$this->singleSection."',
