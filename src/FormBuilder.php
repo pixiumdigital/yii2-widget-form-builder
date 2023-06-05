@@ -93,10 +93,8 @@ class FormBuilder extends InputWidget
      */
     public function run()
     {
-        // parent::run();
-        //Create temporary external save btn with same id as interne save btn
-        // echo Html::button('SAVE QUESTIONS', ['id' => 'form-builder-save-btn']);
-
+        parent::run();
+        
         $this->registerClientScript();
         if ($this->hasModel()) {
             $this->options['value'] = $this->data; 
